@@ -25,10 +25,10 @@ onMounted(() => {
 
 <template>
 
-{{ team.area.name }}
-<img :src="team.area.flag" width="50">
+{{ team }}
+<!-- <img :src="team.area.flag" width="50">
   {{ team.squad }}
   //show all players v-for
-<router-link :to="`person/:personId`">{{ squad.name }}</router-link>
+<router-link :to="`person/:personId`">{{ squad.name }}</router-link> -->
 </template>
 
