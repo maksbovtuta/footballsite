@@ -15,7 +15,7 @@ onMounted(() => {
 
 <template>
     <div>
-      <h2>Состав команды {{ teamName }}</h2>
+      <h2>Player</h2>
       <ul>
         <li v-for="(player, index) in players" :key="index">
           
