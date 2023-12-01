@@ -14,26 +14,28 @@ onMounted(() => {
 </script>
 
 <template>
-  <table class="w-full border-3 text-left">
-    <tbody class="bg-slate-400">
-      <tr class="border-2" v-for="(competition, index) in competitions" :key="index">
+  <div class="cardpack">
+      <div v-for="(competition, index) in competitions" :key="index">
 
-        <td class="px-6 py-4">
-          <div class="emblem-card">
-           <img :src="competition.emblem" width="100" class="emblem"/>
-          </div>
-        </td>
+        
+          <a>
+            <router-link :to="`/teams-by-country/${competition.code}`">
+            <div class="emblem-card">
+            <img :src="competition.emblem" width="100" class="emblem"/>
+            <p class="p-emblem">{{ competition.area.name }} - {{ competition.name }}</p>
+            </div>
+          </router-link>
+          </a>
+        
 
-        <td class="px-6 py-4"><router-link :to="`/teams-by-country/${competition.code}`" class="underline">{{ competition.area.name }} - {{ competition.name }}</router-link></td>
-
-      </tr>
-    </tbody>
-  </table>
+        
+        
+      </div>
+  </div>
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: rgb(89, 25, 193)}
+
 
 
   .emblem-card {
@@ -55,6 +57,14 @@ onMounted(() => {
     height: 120px;
     transition: all ease-in-out .2s;
 }
+  .cardpack{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 0px 200px;
+    }
+
 
   .emblem-card:hover {
     .emblem {
@@ -62,5 +72,12 @@ onMounted(() => {
         height: 220px;
         transition: all ease-in-out .4s;
     }
+
+    .p-emblem {
+      display: none;
+      transition: all ease-in-out .4s;
+    }
+
+    
 }
 </style>
