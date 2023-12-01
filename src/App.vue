@@ -3,7 +3,6 @@
 </script>
 
 <template>
-  Football
   <router-view></router-view>
 </template>
 

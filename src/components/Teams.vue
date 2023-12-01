@@ -24,6 +24,7 @@ onMounted(() => {
 
 
 <template>
+  <button><router-link :to="`/`">Назад</router-link></button>
   <div class="cardpack">
       <div v-for="(team, index) in teams" :key="index">
         

@@ -5,10 +5,10 @@ import axios from "axios";
 const competitions = ref([]);
 onMounted(() => {
   axios.get(
-    `/sportmonks-api/v4/persons/${teamId}`,
+    `/sportmonks-api/v4/persons/${persons.id}`,
     { headers: {'X-Auth-Token': '9a6690dd7a9c4faeb5c52dd825313059' }}
   ).then((response) => {
-    competitions.value = response.data.competitions;
+    persons.value = response.data.persons;
   });
 });
 </script>  

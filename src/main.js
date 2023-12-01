@@ -11,7 +11,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const routes = [
     { path: '/', component: Competitions },
     { path: '/teams-by-country/:id', component: Teams, props: true },
-    { path: '/teams/:teamId', component: TeamDetail, props: true }
+    { path: '/teams/:teamId', component: TeamDetail, props: true },
+    { path: '/persons/:personId', component: Players, props: true }
     // { path: '/persons/:personId', component: Players, props: true }
   ]
 

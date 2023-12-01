@@ -17,7 +17,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <Preloader v-if="isLoading">param-pam-pam</Preloader>
+  <Preloader v-if="isLoading"><img src="../assets/img/giphy.gif"></Preloader>
   <div v-else class="wrapper">
   <div class="cardpack">
       <div v-for="(competition, index) in competitions" :key="index">
