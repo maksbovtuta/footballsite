@@ -2,6 +2,8 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 
+const isLoading = ref(true);
+
 const competitions = ref([]);
 onMounted(() => {
   axios.get(
@@ -9,11 +11,14 @@ onMounted(() => {
     { headers: {'X-Auth-Token': '9a6690dd7a9c4faeb5c52dd825313059' }}
   ).then((response) => {
     competitions.value = response.data.competitions;
+    isLoading.value = false;
   });
 });
 </script>
 
 <template>
+  <Preloader v-if="isLoading">param-pam-pam</Preloader>
+  <div v-else class="wrapper">
   <div class="cardpack">
       <div v-for="(competition, index) in competitions" :key="index">
 
@@ -32,6 +37,7 @@ onMounted(() => {
         
       </div>
   </div>
+</div>
 </template>
 
 <style scoped>
