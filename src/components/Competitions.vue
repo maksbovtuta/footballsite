@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import axios from "axios";
+import Preloader from "./Preloader.vue";
 
 const isLoading = ref(true);
 
@@ -11,13 +12,13 @@ onMounted(() => {
     { headers: {'X-Auth-Token': '9a6690dd7a9c4faeb5c52dd825313059' }}
   ).then((response) => {
     competitions.value = response.data.competitions;
-    isLoading.value = false;
+    setTimeout(()=>{isLoading.value = false}, 1000);
   });
 });
 </script>
 
 <template>
-  <Preloader v-if="isLoading"><img src="../assets/img/giphy.gif"></Preloader>
+  <Preloader v-if="isLoading" />
   <div v-else class="wrapper">
   <div class="cardpack">
       <div v-for="(competition, index) in competitions" :key="index">
