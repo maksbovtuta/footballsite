@@ -2,6 +2,8 @@
 
 import { onMounted, ref } from "vue";
 import axios from "axios";
+import Preloader from "./Preloader.vue";
+const isLoading = ref(true);
 
 const teams = ref([]);
 
@@ -15,6 +17,7 @@ onMounted(() => {
     { headers: {'X-Auth-Token': '9a6690dd7a9c4faeb5c52dd825313059' }}
 ).then((response) => {
     teams.value = response.data.teams;
+    setTimeout(()=>{isLoading.value = false}, 1000);
     console.log(response.data);
   });
 });
@@ -24,7 +27,9 @@ onMounted(() => {
 
 
 <template>
-  <button><router-link :to="`/`">Назад</router-link></button>
+  <Preloader v-if="isLoading" />
+  <div v-else class="wrapper">
+    <a class="BACKBTN" @click.prevent="$router.back()" href="#">BACK</a>
   <div class="cardpack">
       <div v-for="(team, index) in teams" :key="index">
         
@@ -37,7 +42,7 @@ onMounted(() => {
         
       </div>
     </div>
-    
+  </div>
 </template>
 
 <style scoped>
@@ -54,6 +59,30 @@ onMounted(() => {
       box-shadow: -5px 6px 15px rgba(0, 0, 0, 0.2);
       background-color: #fff;
   }
+
+  .BACKBTN {
+  /* Стили кнопки */
+  margin-left: 150px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s ease;
+  border-radius: 15px;
+  box-shadow: -5px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.BACKBTN:hover {
+  /* Анимация при наведении */
+  transform: scale(1.1);
+}
+
+.BACKBTN:active {
+  /* Анимация при нажатии */
+  transform: scale(0.9);
+}
 
 .emblem {
     width: 120px;
