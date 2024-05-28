@@ -8,6 +8,7 @@ const isMatchesLoading = ref(true);
 
 const team = ref({});
 const matches = ref([]);
+const data_of_match = ref(null);
 
 const props = defineProps({
     teamId: String,
@@ -41,6 +42,13 @@ onMounted(async () => {
     isMatchesLoading.value = false;
   }
 });
+const findByDate = () => {
+    matches.value = matches.value.filter(match => { 
+      console.log( data_of_match.value)
+      return (new Date(match.utcDate).toLocaleDateString()).toString() == new Date(data_of_match.value).toLocaleDateString().toString();
+  })
+  console.log(matches.value);
+}
 </script>
 
 <template>
@@ -85,6 +93,8 @@ onMounted(async () => {
 
       <h1 class="h1-matches">Матчи команды:</h1>
 
+      <input type="date" v-model="data_of_match"><button @click="findByDate()">Знайти по даті</button>
+      <button @click="showAll()">Показати всі</button>
       <table class="matches-table">
         <thead>
           <tr>
