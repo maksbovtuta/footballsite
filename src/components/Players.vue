@@ -20,9 +20,9 @@ onMounted(() => {
 </script>  
 
 <template>
+  <a class="BACKBTN" @click.prevent="$router.back()" href="#">BACK</a>
   <Preloader v-if="isLoading" />
   <div v-else class="wrapper">
-  {{ person }}
     <div class="content">
       <h1>Ім'я: {{ person.name }}</h1>
       <h1>Дата народження: {{ person.dateOfBirth }}</h1>
@@ -39,6 +39,27 @@ onMounted(() => {
 
 <style scoped>
   .content{
-    padding: 20px 270px;
+    padding: 30px 550px;
   }
+
+  .BACKBTN {
+  margin-left: 150px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.3s ease;
+  border-radius: 15px;
+  box-shadow: -5px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.BACKBTN:hover {
+  transform: scale(1.1);
+}
+
+.BACKBTN:active {
+  transform: scale(0.9);
+}
 </style>

@@ -6,12 +6,12 @@
   
   <script>
   export default {
-    // Логика компонента, если нужно
+   
   }
   </script>
   
   <style>
-  /* Стили для вашего индикатора загрузки */
+  
   .loading-indicator {
     display: flex;
     justify-content: center;
@@ -21,8 +21,7 @@
   
   .loading-indicator h1 {
     font-size: 24px;
-    color: #333; /* Цвет текста */
-    /* Дополнительные стили по вашему усмотрению */
+    color: #333; 
   }
   </style>
   

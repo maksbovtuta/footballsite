@@ -21,8 +21,6 @@ onMounted(() => {
     console.log(response.data);
   });
 });
-//покажи тут інфу по teams 
-
 </script>
 
 
@@ -61,7 +59,6 @@ onMounted(() => {
   }
 
   .BACKBTN {
-  /* Стили кнопки */
   margin-left: 150px;
   display: inline-block;
   padding: 10px 20px;
@@ -75,12 +72,10 @@ onMounted(() => {
 }
 
 .BACKBTN:hover {
-  /* Анимация при наведении */
   transform: scale(1.1);
 }
 
 .BACKBTN:active {
-  /* Анимация при нажатии */
   transform: scale(0.9);
 }
 
